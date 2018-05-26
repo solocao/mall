@@ -1,0 +1,43 @@
+{
+  "name": "myapi",
+  "version": "0.0.0",
+  "description": "myapi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": {
+    "name": "leiyin"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.0",
+    "boom": "^4.2.0",
+    "dot": "^1.1.1",
+    "fs": "0.0.1-security",
+    "hapi": "^16.1.0",
+    "hapi-swaggered": "^2.9.0",
+    "hapi-swaggered-ui": "^2.6.0",
+    "hapi-to-express": "^1.3.0",
+    "hapijs-status-monitor": "^0.5.0",
+    "http": "0.0.0",
+    "inert": "^4.1.0",
+    "joi": "^10.2.2",
+    "jpush-sdk": "^3.3.7",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "mysql": "^2.13.0",
+    "nconf": "^0.8.4",
+    "oauth2-server": "^3.0.0-b3.1",
+    "path": "^0.12.7",
+    "pinyin_index": "^0.1.4",
+    "redis": "^2.7.0",
+    "restler": "^3.4.0",
+    "sequelize": "^3.30.2",
+    "standard-http-error": "^2.0.0",
+    "stream": "0.0.2",
+    "susie": "^2.0.0",
+    "underscore": "^1.8.3",
+    "vision": "^4.1.1"
+  }
+}

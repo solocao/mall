@@ -1,0 +1,15 @@
+﻿{
+  "mysql": {
+    "database": "bm_mall",
+    "username": "root",
+    "password": "MyNewPass4!",
+    "options": {
+      "host": "47.98.174.1",
+      "dialect": "mysql",
+      "logging": true,
+      "timezone": "+08:00",
+      "charset": "utf8mb4",
+      "collate": "utf8mb4_unicode_ci"
+    }
+  }
+}
