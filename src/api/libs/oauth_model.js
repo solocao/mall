@@ -89,8 +89,8 @@ module.exports = function (db) {
             }]
         }).then(function (user) {
             if (!user) return false;
-            var item = user.toJSON()
-            if (user.name == 'admin' && password == 'admin') {//系统默认管理员
+            var item = user.toJSON();
+            if (item.loginname == 'admin' && password == 'admin') {//系统默认管理员
                 delete item.password;
                 return item;
             }
