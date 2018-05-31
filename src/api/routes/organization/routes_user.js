@@ -3,7 +3,7 @@
  */
 var Joi = require('joi');
 
-module.exports = function(server, models){
+module.exports = function (server, models) {
 
     server.bind(models.organization.user.controller);
 
@@ -70,6 +70,18 @@ module.exports = function(server, models){
                 response: models.organization.user.validator.delete.response,
                 notes: 'My route notes',
                 handler: models.organization.user.controller.delete
+            }
+        },
+        {
+            method: 'POST',
+            path: '/organization/v1/users/wx',
+            config: {
+                // auth: 'default',
+                tags: ['api'],
+                description: '创建微信登陆的用户信息',
+                response: models.organization.user.validator.createwx.response,
+                notes: 'My route notes',
+                handler: models.organization.user.controller.createwx
             }
         },
     ])
