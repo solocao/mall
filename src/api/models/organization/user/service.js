@@ -2,10 +2,10 @@
  * Created by leiyin on 2017/03/13.
  */
 var _ = require('lodash');
-
+var client = require('restler');
 var Service = function (db) {
     this.db = db;
-    this.attributes = ['user_id', 'loginname', 'nickname', 'avatar_url', 'gender', 'email', 'mobile', 'updated_at', 'signature', 'status'];
+    this.attributes = ['user_id', 'loginname', 'nickname', 'avatar_url', 'gender', 'address', 'email', 'mobile', 'updated_at', 'signature', 'status'];
 };
 
 Service.prototype.list = function (where, page_size, page_number, order) {
@@ -66,6 +66,43 @@ Service.prototype.delete = function (where) {
 
 Service.prototype.update = function (where, data) {
     return this.db.User.update(data, { where: where });
+};
+Service.prototype.createwx = function (data) {
+    var self = this;
+    var url = 'https://api.weixin.qq.com/sns/jscode2session'
+    return new Promise(function (resolve, reject) {
+        client.post(url, {//调取微信小程序接口获取用户open_id
+            headers: {
+                'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8',
+            },
+            data: { appid: 'wxa9344e021c91e123', secret: '29e6199fb4545fa38975e605b7f845c0', js_code: data.code, grant_type: 'authorization_code' }
+        }).on('complete', async function (result) {
+            var result = JSON.parse(result)
+            if (result.openid) {
+                var user;
+                data.loginname = result.openid
+                data.password = result.openid
+                data.status = 1
+
+                user = await self.db.User.findOne({ where: { loginname: result.openid } })//查询用户是否存在
+
+                if (!user) {//用户不存在，创建用户
+                    user = await self.db.User.build(data).save();
+                    var roledata = {
+                        type: 'user',
+                        value: user.toJSON().user_id,
+                        role_id: 2
+                    }
+
+                    await self.db.RoleMember.build(roledata).save()//创建角色
+                }
+                user = user.toJSON()
+                delete user.password
+
+                return resolve(user)
+            }
+        })
+    });
 };
 
 module.exports = Service;

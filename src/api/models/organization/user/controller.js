@@ -71,5 +71,13 @@ Controller.prototype.update = function (request, reply) {
         reply.error(Boom.badImplementation(err.message, err));
     })
 };
+Controller.prototype.createwx = function (request, reply) {
+
+    this.service.createwx(request.payload).then(function (result) {
+        reply.send(result);
+    }).catch(function (err) {
+        reply(err.message);
+    })
+};
 
 module.exports = Controller;

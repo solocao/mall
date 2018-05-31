@@ -18,9 +18,11 @@ var Model = {
     gender: Joi.string().allow(['', null]).description('性别'),
     email: Joi.string().allow(['', null]).description('电子邮件'),
     mobile: Joi.string().allow(['', null]).description('手机号码'),
+    address: Joi.string().allow(['', null]).description('地址'),
     signature: Joi.string().allow(['', null]).description('签名'),
     status: Joi.number().allow(['', null]).description('状态 0禁用 1正常'),
     rolemembers:Joi.array().allow(['', null]).description('角色'),
+    created_at: Joi.date().allow(null).description('创建日期'),
     updated_at: Joi.date().allow(null).description('更新日期'),
     role_id: Joi.number().allow(['', null]).description('角色id'),
     name: Joi.string().allow(['', null]).description('角色名称'),
@@ -34,6 +36,7 @@ var RequestModel = {
     avatar_url: Joi.string().allow(['', null]).description('头像图片url'),
     gender: Joi.string().allow(['', null]).default('男').description('性别'),
     email: Joi.string().allow(['', null]).description('电子邮件'),
+    address: Joi.string().allow(['', null]).description('地址'),
     mobile: Joi.string().allow(['', null]).description('手机号码'),
     signature: Joi.string().allow(['', null]).description('签名'),
     status: Joi.number().allow(['', null]).description('状态 0禁用 1正常'),
@@ -121,6 +124,20 @@ module.exports = {
                 code: Joi.number().integer().required().description("返回代码"),
                 message: Joi.string().description('返回信息')
             }).meta({ className:  PREFIX + "DeleteResponse"}).required().description("返回消息体"),
+            status: Status
+        }
+    },
+    //创建微信登陆用户信息
+    createwx: {
+        response: {
+            schema: Joi.object({
+                code: Joi.number().integer().description("返回代码"),
+                message: Joi.string().description('返回信息'),
+                rows: Joi.object(Model)
+                    .meta({ className: PREFIX + "GetResponseData" })
+                    .allow(null)
+                    .description("用户信息")
+            }).meta({ className: PREFIX + "GetResponse" }).required().description("返回消息体"),
             status: Status
         }
     },

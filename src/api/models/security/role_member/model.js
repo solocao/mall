@@ -13,11 +13,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         type: {
             type: DataTypes.STRING(50),
-            comment: "���� user"
+            comment: "角色类型"
         },
         value: {
             type: DataTypes.STRING(50),
-            comment: "����ֵ userid"
+            comment: "值"
         }
     }, {
         tableName: 'security_role_members',

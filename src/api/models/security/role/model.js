@@ -13,11 +13,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         name: {
             type: DataTypes.STRING(50),
-            comment: "��ɫ����"
+            comment: "角色"
         },
         description: {
             type: DataTypes.STRING(180),
-            comment: "����"
+            comment: "描述"
         }
     }, {
         tableName: 'security_roles',

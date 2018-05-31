@@ -41,6 +41,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
             comment: "性别"
         },
+        address:{
+            type: DataTypes.STRING(255),
+            comment: "地址"
+        },
         email: {
             type: DataTypes.STRING,
             comment: "电子邮件"
