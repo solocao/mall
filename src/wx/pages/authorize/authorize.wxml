@@ -1,0 +1,5 @@
+<view class="contain">
+  <view class="error">!</view>
+  <view class="text">请授权登陆小程序</view>
+  <button class='button' size="small" open-type="getUserInfo" bindgetuserinfo="_getUserInfo">允许授权</button>
+</view>

@@ -1,0 +1,3 @@
+<button class='button' size="small" bindtap="onTap" open-type="{{mallType?mallType:''}}" bindcustomevent="_callback">
+  {{mallName}}
+</button>
