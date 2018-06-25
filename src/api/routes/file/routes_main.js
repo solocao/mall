@@ -37,9 +37,10 @@ module.exports = function (server, modules) {
                             console.log(fields);//上传参数
                             console.log(file.originalFilename);//文件原始名
                             var guid = Guid.create();
+                            var baseUrl = "../../../../images/";
                             var filename = guid + '/' + file.originalFilename;
 
-                            var fileUrl = "images/" + filename;
+                            var fileUrl = baseUrl + filename;
 
                             console.log("上传的文件是：" + filename);
                             console.log(fileUrl)
@@ -49,7 +50,7 @@ module.exports = function (server, modules) {
                             data.name = file.originalFilename;
                             data.type = file.headers["content-type"];
 
-                            fs.exists('/' + guid, function (exists) {
+                            fs.exists(baseUrl + guid, function (exists) {
                                 console.log(exists)
                                 if (exists) {
                                     fs.writeFileSync(fileUrl, data, function (err, data) {//保存
@@ -57,7 +58,7 @@ module.exports = function (server, modules) {
                                         console.log('异步读取文件数据：' + data.toString());
                                     })
                                 } else {
-                                    fs.mkdir('images/'+guid, function () {
+                                    fs.mkdir(baseUrl + guid, function () {
                                         console.log(222)
                                         fs.writeFileSync(fileUrl, data, function (err, data) {//保存
                                             if (err) console.error(err);
