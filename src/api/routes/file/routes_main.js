@@ -60,6 +60,7 @@ module.exports = function (server, modules) {
                                     fs.mkdir(baseUrl + guid, function () {
                                         fs.writeFileSync(fileUrl, data, function (err, data) {//保存
                                             if (err) throw (new Error("图片保存失败"));
+                                            console.log(2)
                                             console.log(filename)
                                             reply.send({ url: 'images/' + filename, code: 200 });
                                             console.log('异步读取文件数据：' + data.toString());
