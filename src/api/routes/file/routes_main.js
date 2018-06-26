@@ -61,7 +61,7 @@ module.exports = function (server, modules) {
                                         console.log(222)
                                         fs.writeFileSync(fileUrl, data, function (err, data) {//保存
                                             if (err) throw (new Error("图片保存失败"));
-                                            reply.send(result);
+                                            // reply.send();
                                             console.log('异步读取文件数据：' + data.toString());
                                         })
                                     });
