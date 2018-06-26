@@ -30,7 +30,8 @@ module.exports = function (server, modules) {
                     form.parse(request.payload, function (err, fields, files) {
                         if (err) return reply(err);
 
-                        files.file.forEach(function (file) {
+                        var imgurl = []
+                        files.file.forEach(function (file, index) {
 
                             console.log("--------------file---------------");
                             console.log(file);//文件流
@@ -38,6 +39,7 @@ module.exports = function (server, modules) {
                             console.log(file.originalFilename);//文件原始名
                             var guid = Guid.create();
                             var baseUrl = "../../../../images/";
+                            // var baseUrl = "images/";
                             var filename = guid + '/' + file.originalFilename;
 
                             var fileUrl = baseUrl + filename;
@@ -52,19 +54,18 @@ module.exports = function (server, modules) {
 
                             fs.exists(baseUrl + guid, function (exists) {
                                 if (exists) {
-                                    fs.writeFileSync(fileUrl, data, function (err, data) {//保存
-                                        if (err) throw (new Error("图片保存失败"));
-                                        console.log('异步读取文件数据：' + data.toString());
-                                    })
+                                    fs.writeFileSync(fileUrl, data)
+                                    imgurl.push('images/' + filename)
+                                    if (files.file.length == (index + 1)) {
+                                        return reply.send({ data: imgurl });
+                                    }
                                 } else {
                                     fs.mkdir(baseUrl + guid, function () {
-                                        fs.writeFileSync(fileUrl, data, function (err, data) {//保存
-                                            if (err) throw (new Error("图片保存失败"));
-                                            console.log(2)
-                                            console.log(filename)
-                                            reply.send({ url: 'images/' + filename, code: 200 });
-                                            console.log('异步读取文件数据：' + data.toString());
-                                        })
+                                        fs.writeFileSync(fileUrl, data)
+                                        imgurl.push('images/' + filename)
+                                        if (files.file.length == (index + 1)) {
+                                            return reply.send({ data: imgurl });
+                                        }
                                     });
                                 }
                             });
