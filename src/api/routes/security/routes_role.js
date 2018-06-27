@@ -27,7 +27,7 @@ module.exports = function(server, modules){
                // auth: 'default',
                 tags: ['api'],
                 description: '创建新的角色信息',
-                // validate: modules.security.role.validator.create.request,
+                validate: modules.security.role.validator.create.request,
                 notes: '角色是为Web,手机端或其他客户端提供接口的集合',
                 response: modules.security.role.validator.create.response,
                 handler: modules.security.role.controller.create
