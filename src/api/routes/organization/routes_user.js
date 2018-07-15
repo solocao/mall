@@ -63,7 +63,7 @@ module.exports = function (server, models) {
             method: 'DELETE',
             path: '/organization/v1/users/{user_id}',
             config: {
-                auth: 'default',
+                // auth: 'default',
                 tags: ['api'],
                 description: '删除指定标识的用户信息',
                 validate: models.organization.user.validator.delete.request,
