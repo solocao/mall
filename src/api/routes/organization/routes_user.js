@@ -24,7 +24,7 @@ module.exports = function (server, models) {
             method: 'GET',
             path: '/organization/v1/users',
             config: {
-                auth: 'default',
+                // auth: 'default',
                 tags: ['api'],
                 description: '分页方式获取获取用户列表信息',
                 validate: models.organization.user.validator.list.request,
