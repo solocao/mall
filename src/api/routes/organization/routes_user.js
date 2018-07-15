@@ -12,7 +12,7 @@ module.exports = function (server, models) {
             method: 'POST',
             path: '/organization/v1/users',
             config: {
-                auth: 'default',
+                // auth: 'default',
                 tags: ['api'],
                 description: '创建新的用户信息',
                 validate: models.organization.user.validator.create.request,
