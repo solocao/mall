@@ -127,5 +127,8 @@ module.exports = {
   creatWxUsers(params) {
     return this.callApi('/organization/v1/users/wx', 'post', params)
   },
-
+  //创建角色
+  creatRoles(params) {
+    return this.callApi('/security/v1/roles', 'post', params)
+  },
 }
