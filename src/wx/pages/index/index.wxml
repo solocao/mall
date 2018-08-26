@@ -1,2 +1,0 @@
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.avatar_url}}" background-size="cover"></image>
-
