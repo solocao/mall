@@ -25,7 +25,6 @@ App({
                     }
                     //创建用户
                     api.creatWxUsers(parmas).then((result) => {
-                      console.log(224)
                       //用户信息保存全局
                       let data = {
                         username: result.data.rows.loginname,
