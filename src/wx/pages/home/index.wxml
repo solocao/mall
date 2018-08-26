@@ -1,0 +1,1 @@
+<image bindtap="_uploadImg" class="userinfo-avatar" src="{{user.avatar_url}}" background-size="cover"></image>

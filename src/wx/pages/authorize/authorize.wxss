@@ -5,6 +5,7 @@
   width: 100%;
   padding: 240rpx 24rpx;
 }
+
 .text{
   font-size: 14px;
   color: #666;
