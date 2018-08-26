@@ -12,7 +12,7 @@ module.exports = function (server, models) {
             method: 'POST',
             path: '/organization/v1/users',
             config: {
-                // auth: 'default',
+                auth: 'default',
                 tags: ['api'],
                 description: '创建新的用户信息',
                 validate: models.organization.user.validator.create.request,
@@ -24,7 +24,7 @@ module.exports = function (server, models) {
             method: 'GET',
             path: '/organization/v1/users',
             config: {
-                // auth: 'default',
+                auth: 'default',
                 tags: ['api'],
                 description: '分页方式获取获取用户列表信息',
                 validate: models.organization.user.validator.list.request,
@@ -63,7 +63,7 @@ module.exports = function (server, models) {
             method: 'DELETE',
             path: '/organization/v1/users/{user_id}',
             config: {
-                // auth: 'default',
+                auth: 'default',
                 tags: ['api'],
                 description: '删除指定标识的用户信息',
                 validate: models.organization.user.validator.delete.request,
@@ -76,7 +76,7 @@ module.exports = function (server, models) {
             method: 'POST',
             path: '/organization/v1/users/wx',
             config: {
-                // auth: 'default',
+                auth: 'default',
                 tags: ['api'],
                 description: '创建微信登陆的用户信息',
                 response: models.organization.user.validator.createwx.response,
