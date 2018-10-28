@@ -76,7 +76,7 @@ module.exports = function (server, models) {
             method: 'POST',
             path: '/organization/v1/users/wx',
             config: {
-                auth: 'default',
+                // auth: 'default',
                 tags: ['api'],
                 description: '创建微信登陆的用户信息',
                 response: models.organization.user.validator.createwx.response,
