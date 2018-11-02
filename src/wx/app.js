@@ -16,6 +16,13 @@ App({
               success: user => {
                 wx.login({
                   success: res => {
+                    this.globalData.userInfo = result.data.rows
+                    // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                    // 所以此处加入 callback 以防止这种情况
+                    if (this.userInfoReadyCallback) {
+                      this.userInfoReadyCallback(res)
+                    }
+                    return ; //
                     let parmas = {
                       code: res.code,
                       nickname: user.nickName,
@@ -53,13 +60,18 @@ App({
             }
           }
         } else {
-          wx.redirectTo({ url: '/pages/authorize/authorize' })
+          wx.reLaunch({ url: '/pages/authorize/authorize' })
+          // wx.reLaunch({ url: '/pages/home/index' })
         }
       }
     })
   },
   api: api,
   globalData: {
-    userInfo: null
+    userInfo: null,
+    awards: null,//已选择奖项1:龙泉驿英才计划A类人才（国际顶尖）,2:龙泉驿英才计划B类人才（国家领军）,3:龙泉驿英才计划C类人才（地方高级）,4:龙泉驿英才计划D类人才（骨干精英）
+    jobs:null,//就业意向1:就业，2:创业
+    tags: null,//个性标签1:智商逆天，2:傲娇满分，3:颜值逆天，4:超级学霸，5:文艺小清新，6:好奇宝宝，6:学霸宝宝，6:呆萌学者，6:霸道总裁，
+    skills:null,//专业
   }
 })

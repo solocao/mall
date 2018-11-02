@@ -1,32 +1,23 @@
 {
   "pages":[
     "pages/home/index",
-    "pages/me/index",
+    "pages/personplan/index",
+    "pages/personhigh/index",
+    "pages/personhighresult/index",
+    "pages/personhighwork/index",
+    "pages/personskill/index",
+    "pages/personhighend/index",
+    "pages/endpage/index",
+    "pages/personai/index",
+    "pages/workfare/index",
+    "pages/venturefare/index",
+    "pages/choicetag/index",
     "pages/authorize/authorize"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "大城建材",
+    "navigationBarTitleText": "蓉漂人才荟",
     "navigationBarTextStyle":"black"
-  },
-  "tabBar": {
-    "color": "#b6babd",
-    "backgroundColor": "#ffffff",
-    "selectedColor": "#35D1D7",
-    "list": [
-      {
-        "pagePath": "pages/home/index",
-        "text": "首页",
-        "iconPath": "images/icon_tab01.png",
-        "selectedIconPath": "images/icon_tab01_select.png"
-      },
-      {
-        "pagePath": "pages/me/index",
-        "text": "我的",
-        "iconPath": "images/icon_tab05.png",
-        "selectedIconPath": "images/icon_tab05_select.png"
-      }
-    ]
   }
 }
