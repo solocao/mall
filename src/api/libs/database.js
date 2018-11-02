@@ -4,14 +4,14 @@
 var fs = require('fs');
 var path = require('path');
 var Sequelize = require('sequelize');
-var cache = require('./cache.js');//缓存配置文件
+// var cache = require('./cache.js');//缓存配置文件
 
 //数据模块文件的根目录
 var MODULES_FOLDER = 'models';
 
 module.exports = function (settings) {
     var sequelize = new Sequelize(settings.database, settings.username, settings.password, settings.options);
-    var db = { cache: cache, sequelize: sequelize, Sequelize: Sequelize };
+    var db = {  sequelize: sequelize, Sequelize: Sequelize };
     //读取根目录下文件
     fs.readdirSync(MODULES_FOLDER)
         .filter(function (filename) {
