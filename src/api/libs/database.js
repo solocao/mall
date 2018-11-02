@@ -6,6 +6,7 @@ var path = require('path');
 var Sequelize = require('sequelize');
 // var cache = require('./cache.js');//缓存配置文件
 
+    
 //数据模块文件的根目录
 var MODULES_FOLDER = 'models';
 
