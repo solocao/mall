@@ -8,6 +8,7 @@ var Controller = function (service) {
     this.service = service;
 };
 
+
 Controller.prototype.list = function (request, reply) {
     var where = {};
 
