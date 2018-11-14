@@ -75,7 +75,7 @@ Service.prototype.createwx = function (data) {
             headers: {
                 'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8',
             },
-            data: { appid: 'wxa9344e021c91e123', secret: '29e6199fb4545fa38975e605b7f845c0', js_code: data.code, grant_type: 'authorization_code' }
+            data: { appid: 'wx20c0a95a421191a1', secret: 'ffc32b3b0a7e4741d7679a6d95b648fa', js_code: data.code, grant_type: 'authorization_code' }
         }).on('complete', async function (result) {
             var result = JSON.parse(result)
             if (result.openid) {
