@@ -14,8 +14,11 @@ var Model = {
     record_id: Joi.number().required().description('记录标识'),
     awards: Joi.string().allow(['', null]).description('选择奖项'),
     jobs: Joi.string().allow(['', null]).description('就业意向'),
-    tags: Joi.string().allow(['', null]).description('就业意向'),
-    skills: Joi.string().allow(['', null]).description('专业'),
+    tags: Joi.string().allow(['', null]).description('个性标签'),
+    dis_tags: Joi.string().allow(['', null]).description('政策计划'),
+    carethings: Joi.string().allow(['', null]).description('关心事项'),
+    skills: Joi.string().allow(['', null]).description('行业'),
+    user_type: Joi.string().allow(['', null]).description('用户身份'),
     user_id: Joi.number().allow(['', null]).description('用户标示'),
     created_at: Joi.date().allow(null).description('创建日期'),
     updated_at: Joi.date().allow(null).description('更新日期'),
@@ -24,8 +27,11 @@ var Model = {
 var RequestModel = {
     awards: Joi.string().allow(['', null]).description('选择奖项'),
     jobs: Joi.string().allow(['', null]).description('就业意向'),
-    tags: Joi.string().allow(['', null]).description('就业意向'),
-    skills: Joi.string().allow(['', null]).description('专业'),
+    tags: Joi.string().allow(['', null]).description('个性标签'),
+    dis_tags: Joi.string().allow(['', null]).description('政策计划'),
+    carethings: Joi.string().allow(['', null]).description('关心事项'),
+    skills: Joi.string().allow(['', null]).description('行业'),
+    user_type: Joi.string().allow(['', null]).description('用户身份'),
     user_id: Joi.number().allow(['', null]).description('用户标示'),
 };
 

@@ -3,7 +3,7 @@
  */
 var Service = function (db) {
     this.db = db;
-    this.attributes = ['record_id', 'awards', 'jobs', 'tags', 'skills', 'user_id', 'updated_at'];
+    this.attributes = ['record_id', 'awards', 'jobs', 'tags', 'dis_tags', 'carethings', 'user_type', 'skills', 'user_id', 'updated_at'];
 };
 
 Service.prototype.list = function (where, page_size, page_number, order) {
